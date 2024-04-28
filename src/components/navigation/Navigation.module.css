@@ -1,0 +1,53 @@
+.img {
+  display: flex;
+  width: 200px;
+  height: 80px;
+}
+
+li a {
+  text-decoration: none;
+  color: black;
+}
+
+li {
+  list-style-type: none;
+  font-size: 20px;
+  display: flex;
+  flex-direction: row;
+}
+
+.nav {
+  display: flex;
+  max-width: 1200px;
+  height: 70px;
+  margin: 0 auto;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header {
+  display: flex;
+  width: 60%;
+  justify-content: space-between;
+}
+
+.search{
+  display: flex;
+  font-size: 30px;
+}
+
+button{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent ;
+  border: none;
+}
+.search:hover {
+  cursor: pointer;
+}
+.active{
+  display: flex;
+  text-decoration: underline;
+}
