@@ -1,0 +1,20 @@
+.primary{
+    display: flex;
+    background-color: #F5C61C;
+    width: 144px;
+    height: 48px;
+    border-radius: 8px;
+    color: #2E2E2E;
+    font-size: 16px;
+    font-weight: 600;
+}
+.secondary{
+    display: flex;
+    width: 144px;
+    height: 48px;
+    color:white;
+    border: 1px solid white;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+}

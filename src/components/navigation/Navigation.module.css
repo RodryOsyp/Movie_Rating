@@ -6,7 +6,7 @@
 
 li a {
   text-decoration: none;
-  color: black;
+  color: white;
 }
 
 li {
@@ -34,6 +34,13 @@ li {
 .search{
   display: flex;
   font-size: 30px;
+}
+.searchButton:hover{
+  cursor: pointer;
+}
+.searchInput{
+  margin-right: 5px;
+
 }
 
 button{

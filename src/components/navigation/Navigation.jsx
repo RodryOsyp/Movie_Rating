@@ -64,9 +64,6 @@ const Navigation = () => {
           </NavLink>
         </li>
         <li>
-          <button className={styles.searchButton} onClick={handleSearchClick}>
-            <AiOutlineSearch className={styles.searchIcon} />
-          </button>
           {isSearchOpen && (
             <input
               type="text"
@@ -76,6 +73,9 @@ const Navigation = () => {
               className={styles.searchInput}
             />
           )}
+          <button className={styles.searchButton} onClick={handleSearchClick}>
+            <AiOutlineSearch className={styles.searchIcon} color="white"/>
+          </button>
         </li>
       </div>
     </ul>
