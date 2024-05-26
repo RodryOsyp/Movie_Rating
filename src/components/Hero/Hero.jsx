@@ -3,6 +3,7 @@ import style from "./Hero.module.css";
 import Button from "../button/Button";
 import { IoIosPlay } from "react-icons/io";
 import CustomCorusel from "../corusel/CustomCorusel";
+import Navigation from "../navigation/Navigation";
 
 const Hero = () => {
   const loremText =
@@ -16,6 +17,7 @@ const Hero = () => {
   const visibleText = 150;
   return (
     <>
+      <Navigation/>
     <div className={style.banner}>
       <h1 className={style.header}>Spider man No Way Home</h1>
       <span className={style.lorem}>

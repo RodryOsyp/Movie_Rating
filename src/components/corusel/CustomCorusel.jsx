@@ -1,11 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./Corusel.module.css";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import logo from "../../static/Rectangle3.png"
+import logo1 from "../../static/1.jpg"
+import logo2 from "../../static/2.jpg"
+import logo3 from "../../static/3.jpg"
+import logo4 from "../../static/4.jpg"
+import logo5 from "../../static/5.jpg"
+import logo6 from "../../static/6.jpg"
+
 const CustomCorusel = () => {
-  console.log(logo);
-  
+  const [currentSlide, setCurrentSlide] = useState(3);
+  const images = [logo1, logo2, logo3, logo4, logo5, logo6];
+
+  const handleBeforeChange = (nextSlide) => {
+    setCurrentSlide(nextSlide);
+  };
+  console.log(currentSlide);
+  console.log(images.length );
   return (
     <div>
       <Carousel
@@ -32,7 +44,7 @@ const CustomCorusel = () => {
               max: 3000,
               min: 1024,
             },
-            items: 3,
+            items: 6,
             partialVisibilityGutter: 40,
           },
           mobile: {
@@ -60,13 +72,17 @@ const CustomCorusel = () => {
         sliderClass=""
         slidesToSlide={1}
         swipeable
+        beforeChange={handleBeforeChange}
       >
-        <div><img src="../../static/Rectangle3.png" alt="" /></div>
-        {/* <div><img src="../src/assets/Rectangle3.png" alt="" /></div>
-        <div><img src="../src/assets/Rectangle5.png" alt="" /></div>
-        <div><img src="../src/assets/Rectangle8.png" alt="" /></div>
-        <div><img src="../src/assets/Rectangle9.png" alt="" /></div> */}
-        <div><img src="" alt="" /></div>
+        
+        {images.map((image, index) => (
+          <div
+            key={index}
+            className={`${styles.carouselItem} ${currentSlide === index ? styles.center : ''}`}
+          >
+            <img src={image} alt={`Slide ${currentSlide + 1}`} />
+          </div>
+        ))}
       </Carousel>
     </div>
   );
