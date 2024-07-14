@@ -1,0 +1,67 @@
+.movie {
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+
+}
+.error_box{
+  display: flex;
+  height: 60%;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.error{
+  display: flex;
+  font-size: 50px;
+}
+.goBack{
+  justify-content: center;
+  align-items: center;
+  margin-left: 600px;
+}
+.p{
+  display: flex;
+  font-size: 20px;
+}
+.back{
+  display: flex;
+  color: red;
+  font-size: 50px;
+}
+.back:hover{
+  cursor: pointer;
+}
+.icons{
+  display: flex;
+  margin-top: 20px;
+  font-size: 100px;
+  color: red;
+}
+.box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid white;
+  border-radius: 9px;
+  width: 45%;
+  margin: 0 auto;
+  margin-top: 10%;
+}
+.poster {
+  display: flex;
+  width: 250px;
+  height: 300px;
+  border-radius: 9px;
+}
+.text {
+  flex-direction: column;
+  margin-left: 25px;
+}
+.overview {
+  width: 400px;
+}
+.title{
+    margin-bottom: 10px;
+    font-size: 40px;
+}

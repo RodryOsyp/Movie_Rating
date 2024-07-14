@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import { AiOutlineSearch } from "react-icons/ai";
 import styles from "./Navigation.module.css";
-import Hero from "../Hero/Hero";
 
 const Navigation = () => {
+  const { pathname } = useLocation();
   const [activeNavItem, setActiveNavItem] = useState(null);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
@@ -22,9 +22,30 @@ const Navigation = () => {
   };
 
   const getNavLinkClassName = (itemName) => {
-    return pathname === `${itemName}` ? `${styles.active}` : ''
+    return pathname === `${itemName}` ? `${styles.active}` : "";
   };
-  const { pathname } = useLocation();
+  console.log("cgvjhbkjn");
+  const navArray = [
+    {
+      to: "/",
+      class: getNavLinkClassName("/"),
+      onClick: () => handleNavItemClick("Home"),
+      title: "Home"
+    },
+    {
+      to: "/film",
+      class: getNavLinkClassName("/film"),
+      onClick: () => handleNavItemClick("Movie"),
+      title: "Movie"
+    },
+    {
+      to: "/about",
+      class: getNavLinkClassName("/about"),
+      onClick: () => handleNavItemClick("About"),
+      title: "About"
+    },
+  ];
+
   return (
     <ul className={styles.nav}>
       <li className={styles.img}>
@@ -34,35 +55,13 @@ const Navigation = () => {
         />
       </li>
       <div className={styles.header}>
-        <li>
-          <NavLink
-            exact="true"
-            to={"/"}
-            className={getNavLinkClassName("/")}
-            onClick={() => handleNavItemClick("Home")}
-          >
-            Home
-          </NavLink>
-            
-        </li>
-        <li>
-          <NavLink
-            to={"/film"}
-            className={getNavLinkClassName("/film")}
-            onClick={() => handleNavItemClick("Movie")}
-          >
-            Movie
-          </NavLink>
-        </li>
-        <li>
-          <NavLink
-            to={"/about"}
-            className={getNavLinkClassName("/about")}
-            onClick={() => handleNavItemClick("About")}
-          >
-            About us
-          </NavLink>
-        </li>
+        {navArray.map((e, index) => (
+          <li key={index}>
+            <NavLink to={e.to} className={e.class} onClick={e.onClick}>
+              {e.title}
+            </NavLink>
+          </li>
+        ))}
         <li>
           {isSearchOpen && (
             <input
@@ -74,7 +73,7 @@ const Navigation = () => {
             />
           )}
           <button className={styles.searchButton} onClick={handleSearchClick}>
-            <AiOutlineSearch className={styles.searchIcon} color="white"/>
+            <AiOutlineSearch className={styles.searchIcon} color="white" />
           </button>
         </li>
       </div>

@@ -6,6 +6,14 @@ import Home from "../pages/home/Home";
 
 export const router = createBrowserRouter([
   {
+    path: "/film",
+    element: (
+      <Layout>
+        <Movie />
+      </Layout>
+    ),
+  },
+  {
     path: "/",
     element: (
       <Layout>
@@ -14,7 +22,7 @@ export const router = createBrowserRouter([
     ),
   },
   {
-    path: "/film",
+    path: "/film/:id",
     element: (
       <Layout>
         <Movie />

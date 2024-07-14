@@ -23,13 +23,28 @@
   font-style: normal;
 }
 *{
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 body {
+  background: linear-gradient(15deg, #676767, #000000, #0e4d63);
+  background-size: 600% 600%;
+  animation: bg 33s ease infinite;
   font-family: "SF Pro Display";
   font-weight: 400;
   color: white;
   
 }
 .element::-webkit-scrollbar { width: 0; }
+@keyframes bg {
+  0% {
+    background-position: 33% 0%;
+  }
+  50% {
+    background-position: 68% 100%;
+  }
+  100% {
+    background-position: 33% 0%;
+  }
+}

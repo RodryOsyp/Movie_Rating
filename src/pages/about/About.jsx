@@ -1,8 +1,15 @@
 import React from 'react'
+import { sendCustomEmail } from './emal'
 
 const About = () => {
+
   return (
-    <div>About</div>
+    
+    <div>
+      <label htmlFor="">name</label>
+      <input type="text" />
+      <button onClick={sendCustomEmail}>Button</button>
+    </div>
   )
 }
 

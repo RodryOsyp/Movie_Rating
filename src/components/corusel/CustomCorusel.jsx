@@ -1,90 +1,48 @@
 import React, { useState } from "react";
 import styles from "./Corusel.module.css";
-import Carousel from "react-multi-carousel";
-import "react-multi-carousel/lib/styles.css";
-import logo1 from "../../static/1.jpg"
-import logo2 from "../../static/2.jpg"
-import logo3 from "../../static/3.jpg"
-import logo4 from "../../static/4.jpg"
-import logo5 from "../../static/5.jpg"
-import logo6 from "../../static/6.jpg"
+import Slider from "react-slick";
+import img1 from "../../static/1.jpg";
+import img2 from "../../static/2.jpg";
+import img3 from "../../static/3.jpg";
+import img4 from "../../static/4.jpg";
+import img5 from "../../static/5.jpg";
+import img6 from "../../static/6.jpg";
 
-const CustomCorusel = () => {
-  const [currentSlide, setCurrentSlide] = useState(3);
-  const images = [logo1, logo2, logo3, logo4, logo5, logo6];
+const CustomCorusel = ({ onSlideChange }) => {
+  const [currentSlide, setCurrentSlide] = useState(0);
 
-  const handleBeforeChange = (nextSlide) => {
-    setCurrentSlide(nextSlide);
+  const settings = {
+    dots: true,
+    nextArrow: <div>Next</div>,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 5,
+    slidesToScroll: 1,
+    beforeChange: (oldIndex, newIndex) => {
+      setCurrentSlide(newIndex);
+      onSlideChange(newIndex);
+    },
   };
-  console.log(currentSlide);
-  console.log(images.length );
+  const getCentralSlideIndex = () => {
+    return (currentSlide + 2) % 6;
+  };
+
+  const images = [img1, img2, img3, img4, img5, img6];
+  console.log("env:",import.meta.env.VITE_API);
   return (
-    <div>
-      <Carousel
-        additionalTransfrom={0}
-        arrows
-        autoPlaySpeed={3000}
-        centerMode={false}
-        className={styles.carousel}
-        containerClass="container-with-dots"
-        dotListClass=""
-        draggable
-        focusOnSelect={false}
-        infinite
-        itemClass=""
-        keyBoardControl
-        minimumTouchDrag={80}
-        pauseOnHover
-        renderArrowsWhenDisabled={false}
-        renderButtonGroupOutside={false}
-        renderDotsOutside={false}
-        responsive={{
-          desktop: {
-            breakpoint: {
-              max: 3000,
-              min: 1024,
-            },
-            items: 6,
-            partialVisibilityGutter: 40,
-          },
-          mobile: {
-            breakpoint: {
-              max: 464,
-              min: 0,
-            },
-            items: 1,
-            partialVisibilityGutter: 30,
-          },
-          tablet: {
-            breakpoint: {
-              max: 1024,
-              min: 464,
-            },
-            items: 2,
-            partialVisibilityGutter: 30,
-          },
-        }}
-        rewind={false}
-        rewindWithAnimation={false}
-        rtl={false}
-        shouldResetAutoplay
-        showDots={false}
-        sliderClass=""
-        slidesToSlide={1}
-        swipeable
-        beforeChange={handleBeforeChange}
-      >
-        
-        {images.map((image, index) => (
-          <div
-            key={index}
-            className={`${styles.carouselItem} ${currentSlide === index ? styles.center : ''}`}
-          >
-            <img src={image} alt={`Slide ${currentSlide + 1}`} />
-          </div>
-        ))}
-      </Carousel>
-    </div>
+    <Slider {...settings} className={styles.slide}>
+      {images.map((img, index) => (
+        <div key={index} className={styles.slideItem}>
+          <h3>
+            <img
+              src={img}
+              alt={`img${index + 1}`}
+              className={getCentralSlideIndex() === index ? styles.active : styles.inactive} 
+            />
+          </h3>
+        </div>
+      ))}
+    </Slider>
   );
 };
 

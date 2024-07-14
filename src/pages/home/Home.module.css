@@ -1,7 +1,7 @@
+
 .home{
-    background-image: url('../../static/spiderman-no-way-home-570@1@e-preview.jpg');
     background-size: cover;
-    width: 100vw;
+    width: 100%;
     height: 100vh;
-    position: absolute;
+    position: relative;
 }

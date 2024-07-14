@@ -1,29 +1,31 @@
-.carousel{
-    display: flex;
-    width: 100vw;
-    height: 150px;
+.slide {
+  margin: 0 auto;
+  width: 93%;
+  justify-content: center;
+  align-items: center;
 }
-img{
-    display: flex;
-    width: 170px;
-    height: 170px;
+
+.slideItem {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.carouselItem {
-    transition: transform 0.3s ease, filter 0.3s ease;
-  }
-  
-  .carouselItem img {
-    display: flex;
-    width: 170px;
-    height: 170px;
-  }
-  
-  .carouselItem.center img {
-    transform: scale(1.2);
-    filter: none;
-  }
-  
-  .carouselItem:not(.center) img {
-    filter: grayscale(100%);
-  }
-  
+
+img {
+  display: flex;
+  width: 150px;
+  height: 180px;
+  transition: filter 0.5s, transform 0.5s;
+  margin-bottom: 35px;
+}
+
+.slide .active {
+  height: 200px;
+  filter: grayscale(0);
+  transform: scale(1.2);
+}
+
+.slide .inactive {
+  filter: grayscale(1);
+  transform: scale(1);
+}
